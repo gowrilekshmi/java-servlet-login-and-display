@@ -31,6 +31,6 @@ jobs:
       with:
         app-name: khupragenics-app
         slot-name: Production
-        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_9DD9BC7120F249108C1AEB7521C9623C }}
+        publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0855FB03B8314192B1BFA37ECE6DB5B5 }}
         package: ${{ github.workspace }}/target/*.war
 
