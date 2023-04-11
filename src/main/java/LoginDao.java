@@ -6,6 +6,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 
+import com.microsoft.aad.msal4j.AuthenticationResult;
+
 public class LoginDao {
 
 	private static Connection connection = null;
@@ -73,6 +75,19 @@ public class LoginDao {
 		return status;
 	}
 
+	public static boolean validateADUser(String name, String pass) {
+		try {
+			PublicClient pc = new PublicClient();
+			AuthenticationResult result = pc.getAccessToken(name, pass);
+
+			return pc.validateADUser(result.accessToken());
+		} catch (Exception e) {
+			e.printStackTrace();
+			return false;
+			// TODO: handle exception
+		}
+	}
+
 	// Create permanent connection
 	public static Connection getConnection() {
 		if (connection != null)
@@ -121,7 +136,8 @@ public class LoginDao {
 				patient.setName(rs.getString("NAME"));
 				patient.setPhone(rs.getString("PHONE_NUMBER"));
 				patient.setAssigned_doctor(rs.getString("ASSIGNED_DOCTOR"));
-				patient.setBlood_group(rs.getString("BLOOD_GROUP"));;
+				patient.setBlood_group(rs.getString("BLOOD_GROUP"));
+				;
 				patient.setUsername(rs.getString("USERNAME"));
 				patient.setPassword(rs.getString("PASSWORD"));
 				System.out.println(patient.getFile_id() + "::" + patient.getName() + "::" + patient.getPhone() + "::"
@@ -170,8 +186,9 @@ public class LoginDao {
 
 	public static void main(String args[]) {
 		LoginDao login = new LoginDao();
-		login.validate("driley0", "XBXA3XgR");
-		login.getAllPatients();
+//		login.validate("driley0", "XBXA3XgR");
+		login.validateADUser("AlanJ@khupragenicstest.onmicrosoft.com", "Dummy123!");
+//		login.getAllPatients();
 
 	}
 }
