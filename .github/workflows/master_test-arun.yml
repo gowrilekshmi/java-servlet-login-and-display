@@ -19,7 +19,7 @@ jobs:
       - name: Set up Java version
         uses: actions/setup-java@v1
         with:
-          java-version: '8'
+          java-version: '11'
 
       - name: Build with Maven
         run: mvn clean install
@@ -49,7 +49,5 @@ jobs:
         with:
           app-name: 'test-arun'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3E57DD0E1C9742629B877AE4FB41B157 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_BD44CF62171246CDA89A87A7D610C363 }}
           package: '*.war'
-          run_from_package: true
-

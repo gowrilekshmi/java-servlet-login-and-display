@@ -1,7 +1,7 @@
 # Docs for the Azure Web Apps Deploy action: https://github.com/Azure/webapps-deploy
 # More GitHub Actions for Azure: https://github.com/Azure/actions
 
-name: Build and deploy WAR app to Azure Web App - loyalist-internship-demo-webapp
+name: Build and deploy WAR app to Azure Web App - akm-learning
 
 on:
   push:
@@ -47,7 +47,7 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: 'loyalist-internship-demo-webapp'
+          app-name: 'akm-learning'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_EDAEB246FBC44756B25F00DB4C7BD034 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_0A3B46FA0AD14D318B8B40997B29CC11 }}
           package: '*.war'
