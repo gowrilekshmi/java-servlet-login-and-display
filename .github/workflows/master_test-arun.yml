@@ -51,3 +51,5 @@ jobs:
           slot-name: 'Production'
           publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_3E57DD0E1C9742629B877AE4FB41B157 }}
           package: '*.war'
+          run_from_package: true
+
