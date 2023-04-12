@@ -49,5 +49,5 @@ jobs:
         with:
           app-name: 'koop-work'
           slot-name: 'Production'
-          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_5CDADC367F1248738CDD4D90542806E0 }}
+          publish-profile: ${{ secrets.AZUREAPPSERVICE_PUBLISHPROFILE_33C94833BE2244269C2A66BB3EBEE13C }}
           package: '*.war'
